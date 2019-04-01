@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css绘制几何图形</title>
+    <style type="text/css">
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            font-size: 16px;
+            font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Arial,sans-serif;
+            color:#333;
+            background-color:ivory;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .menu{
+            width: 120px;
+            height: 520px;
+            display: inline-block;
+            background-color: #fff;
+            overflow-x:hidden;
+            overflow-y:auto;
+            position: fixed;
+            top: 50%;
+            left: -100px;
+            margin-top: -250px;
+            transition: left 1s ease-in-out;
+        }
+        .menu ul{
+            width: 100px;
+            display: inline-block;
+        }
+        .menu ul li{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+            text-align: center;
+            border-bottom: 1px solid #f8f8f8;
+        }
+        .menu ul li a{
+            text-decoration: none;
+            font-size: .14px;
+            color:#999;
+        }
+        .menu #slide{
+            width: 20px;
+            display: inline-block;
+            text-align: center;
+            font-size: 12px;
+            vertical-align: top;
+            color: #ddd;
+            float: right;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .demo-list{
+            width: 100%;
+            min-height: 100%;
+            padding:0 100px 20px 140px;
+        }
+        .demo-list .demo{
+            width: 100%;
+            display: block;
+        }
+        .demo-list .demo h3{
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="#c1">矩形</a></li>
+            <li><a href="#c2">圆形</a></li>
+            <li><a href="#c3">三角形</a></li>
+            <li><a href="#c4">凸多边形</a></li>
+            <li><a href="#c5">凹多边形</a></li>
+            <li><a href="#c6">彩带</a></li>
+            <li><a href="#c7">心型</a></li>
+            <li><a href="#c8">无穷大</a></li>
+            <li><a href="#c9">鸡蛋</a></li>
+            <li><a href="#c10">食豆豆</a></li>
+            <li><a href="#c11">对话框</a></li>
+            <li><a href="#c12">钻石</a></li>
+            <li><a href="#c13">八卦图</a></li>
+        </ul>
+        <div id="slide">点击我</div>
+    </div>
+    <div class="demo-list">
+        <a name="c1" class="demo">
+            <h3>矩形</h3>
+            <div class="demo1-1"></div>
+            <div class="demo1-2"></div>
+            <div class="demo1-3"></div>
+            <div class="demo1-4"></div>
+            <div class="demo1-5"></div>
+        </a>
+        <style type="text/css">
+            .demo1-1{
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                background-color:red;
+            }
+            .demo1-2{
+                width: 150px;
+                height: 100px;
+                display: inline-block;
+                background-color:red;
+
+            }
+            .demo1-3{
+                width: 150px;
+                height: 100px;
+                display: inline-block;
+                margin:0 20px;
+                background-color: red;
+                transform:skew(20deg);
+            }
+            .demo1-4{
+                width: 150px;
+                height: 0;
+                display: inline-block;
+                border-bottom: 100px solid red;
+                border-left: 35px solid transparent;
+                border-right: 35px solid transparent;
+            }
+            .demo1-5{
+                width: 0;
+                height: 100px;
+                display: inline-block;
+                border-right: 75px solid red;
+                border-top:30px solid transparent;
+                border-bottom: 20px solid transparent;
+            }
+        </style>
+        <a name="c2" class="demo">
+            <h3>圆形</h3>
+            <div class="demo2-1"></div>
+            <div class="demo2-6"></div>
+            <div class="demo2-8"></div>
+            <div class="demo2-2"></div>
+            <div class="demo2-3"></div>
+            <div class="demo2-4"></div>
+            <div class="demo2-5"></div>
+            <div class="demo2-7"></div>
+        </a>
+        <style type="text/css">
+            .demo2-1{
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                border-radius: 50%;
+                background-color:red;
+            }
+            .demo2-2{
+                width: 100px;
+                height: 50px;
+                display: inline-block;
+                border-radius: 50px 50px 0 0;
+                background-color:red;
+            }
+            .demo2-3{
+                width: 50px;
+                height: 50px;
+                display: inline-block;
+                border-radius:50px 0 0 ;
+                background-color:red;
+            }
+            .demo2-4{
+                width: 200px;
+                height: 100px;
+                display: inline-block;
+                border-radius:100px / 50px ;
+                background-color:red;
+                /*border-radius: 1-4 length|% / 1-4 length|%;*/
+            }
+            .demo2-5{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-radius: 50%;
+                border-top:100px solid red;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+            }
+            .demo2-6{
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                border:5px solid red;
+                border-radius: 50%;
+            }
+            .demo2-7{
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                border-radius: 50%;
+                box-shadow: 20px 20px 0 0 red;
+            }
+            .demo2-8{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-radius: 50%;
+                border:50px solid;
+                border-color: red orange yellow green;
+            }
+        </style>
+         <a name="c3" class="demo">
+            <h3>三角形</h3>
+            <div class="demo3-1"></div>
+            <div class="demo3-2"></div>
+            <div class="demo3-3"></div>
+            <div class="demo3-4"></div>
+            <div class="demo3-5"></div>
+            <div class="demo3-6"></div>
+            <div class="demo3-7"></div>
+            <div class="demo3-8"></div>
+        </a>
+        <style type="text/css">
+            .demo3-1{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color: transparent transparent red transparent; 
+            }
+            .demo3-2{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color: transparent red transparent transparent; 
+            }
+            .demo3-3{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color: red transparent transparent transparent; 
+            }
+            .demo3-4{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color: transparent transparent transparent red; 
+            }
+            .demo3-5{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color: red transparent transparent red; 
+            }
+            .demo3-6{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color: red red transparent transparent; 
+            }
+            .demo3-7{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color:transparent red red transparent; 
+            }
+            .demo3-8{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:50px solid;
+                border-color: transparent transparent red red; 
+            }
+        </style>
+        <a name="c4" class="demo">
+            <h3>凸多边形</h3>
+            <div class="demo4-1"></div>
+            <div class="demo4-2"></div>
+            <div class="demo4-3"></div>
+        </a>
+        <style type="text/css">
+            .demo4-1{
+                width: 120px;
+                height: 0;
+                margin-top: 75px;
+                display: inline-block;
+                position: relative;
+                border-top: 60px solid red;
+                border-left: 30px solid transparent;
+                border-right: 30px solid transparent;
+            }
+            .demo4-1:before{
+                content: "";
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-bottom: 50px solid red;
+                border-left: 60px solid transparent;
+                border-right: 60px solid transparent;
+                position: absolute;
+                top: -110px;
+                left: -30px;
+            }
+            .demo4-2{
+                width: 0;
+                height: 120px;
+                display: inline-block;
+                margin-right: 100px;
+                position: relative;
+                border-top:30px solid transparent;
+                border-bottom: 30px solid transparent;
+                border-right: 60px solid red;
+            }
+            .demo4-2:before{
+                content: "";
+                width: 0;
+                height: 60px;
+                display: inline-block;
+                border-top:30px solid transparent;
+                border-bottom: 30px solid transparent;
+                border-left: 60px solid red;
+                position: absolute;
+                left: 60px;
+                top: -30px;
+            }
+            .demo4-3{
+                width: 120px;
+                height: 60px;
+                background-color: red;
+                display: inline-block;
+                position: relative;
+                top: -30px;
+            }
+            .demo4-3:before{
+                content: "";
+                width: 60px;
+                height: 0;
+                display: inline-block;
+                border-bottom: 30px solid red;
+                border-right: 30px solid transparent;
+                border-left: 30px solid transparent;
+                position: absolute;
+                top: -30px;
+                left: 0;
+            }
+            .demo4-3:after{
+                content: "";
+                width: 60px;
+                height: 0;
+                display: inline-block;
+                border-top: 30px solid red;
+                border-right: 30px solid transparent;
+                border-left: 30px solid transparent;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+        </style>
+        <a name="c5" class="demo">
+            <h3>凹多边形</h3>
+            <div class="demo5-1"></div>
+            <div class="demo5-2"></div>
+            <div class="demo5-3"></div>
+            <div class="demo5-4"></div>
+            <div class="demo5-5"></div>
+        </a>
+        <style type="text/css">
+            /*六边形，两个三角形*/
+            .demo5-1{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                position: relative;
+                border-bottom: 100px solid red;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+            }
+            .demo5-1:before{
+                content: '';
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-top: 100px solid red;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                position: absolute;
+                left: -50px;
+                top: 30px;
+            }
+            /*八边形，两个矩形*/
+            .demo5-2{
+                width: 80px;
+                height: 80px;
+                margin:0 20px;
+                display: inline-block;
+                position: relative;
+                background-color: red;
+            }
+            .demo5-2:before{
+                content: '';
+                width: 80px;
+                height: 80px;
+                display: inline-block;
+                background-color: red;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: rotate(45deg);
+            }
+            /*十二角星，三个矩形*/
+            .demo5-3{
+                width: 80px;
+                height: 80px;
+                display: inline-block;
+                background-color: red;
+                position: relative;
+            }
+            .demo5-3:before{
+                content: '';
+                width: 80px;
+                height: 80px;
+                display: inline-block;
+                background-color: red;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: rotate(30deg);
+            }
+            .demo5-3:after{
+                content: '';
+                width: 80px;
+                height: 80px;
+                display: inline-block;
+                background-color: red;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: rotate(60deg);
+            }
+            /*五角星*/
+            .demo5-4{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                margin: 0 20px;
+                position: relative;
+                border-top: 30px solid red;
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+                border-bottom: 30px solid transparent;
+            }
+            .demo5-4:before{
+                content: '';
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-top: 30px solid red;
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+                border-bottom: 30px solid transparent;
+                position: absolute;
+                top: -24px;
+                left: -27px;
+                transform-origin: 30px 20px;
+                transform: rotate(-75deg);
+            }
+            .demo5-4:after{
+                content: '';
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-top: 30px solid red;
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+                border-bottom: 30px solid transparent;
+                position: absolute;
+                top: -44px;
+                left: -40px;
+                transform-origin: 30px 20px;
+                transform: rotate(68deg);
+            }
+            .demo5-5{
+                width: 0px;
+                height: 0px;
+                margin:50px 0;
+                display: inline-block;
+                position: relative;
+                border-right: 50px solid transparent;
+                border-bottom: 35px solid red;
+                border-left: 50px solid transparent;
+                transform: rotate(35deg);
+            }
+            .demo5-5:before{
+                content: "";
+                border-bottom: 40px solid red;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                position: absolute;
+                width: 0;
+                height: 0;
+                top: -22.5px;
+                left: -32.5px;
+                display: block;
+                transform: rotate(-35deg);
+            }
+            .demo5-5:after{
+                content: "";
+                position: absolute;
+                top: 1.5px;
+                left: -52.5px;
+                width: 0px;
+                height: 0px;
+                border-right: 50px solid transparent;
+                border-bottom: 35px solid red;
+                border-left: 50px solid transparent;
+                transform: rotate(-70deg);
+            }
+        </style>
+        <a name="c6" class="demo">
+            <h3>彩带</h3>
+            <div class="demo6-1"></div>
+        </a>
+        <style type="text/css">
+            .demo6-1{
+                width: 0;
+                height: 100px;
+                display: inline-block;
+                border-left: 50px solid red;
+                border-right: 50px solid red;
+                border-bottom: 35px solid transparent;
+            }
+        </style>
+        <a name="c7" class="demo">
+            <h3>心形</h3>
+            <div class="demo7-1"></div>
+            <div class="demo7-2">
+                <span></span><span></span>
+            </div>
+        </a>
+        <style type="text/css">
+            .demo7-1{
+                width: 100px;
+                height: 90px;
+                display: inline-block;
+                position: relative;
+            }
+            .demo7-1:before,.demo7-1:after{
+                content: "";
+                width: 50px;
+                height: 80px;
+                display: inline-block;
+                border-radius: 50px 50px 0 0;
+                transform: rotate(-45deg);
+                transform-origin: 0 100%;
+                background-color: red;
+                position: absolute;
+                left: 50px;
+                top: 0;
+            }
+            .demo7-1:after{
+                left: 0;
+                transform: rotate(45deg);
+                transform-origin: 100% 100%;
+            }
+            .demo7-2{
+                width: 130px;
+                height: 130px;
+                display: inline-block;
+                position: relative;
+                top:-65px;
+            }
+            .demo7-2 span{
+                width: 60px;
+                height: 35px;
+                display: inline-block;
+                position: relative;
+                background-color: red;
+                border-radius: 30px 30px 0 0;
+            }
+            .demo7-2 span:nth-child(1):after{
+                content: '';
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:30px solid;
+                border-color: red red transparent transparent;
+                position: absolute;
+                top:35px;
+                right: 0;
+            }
+            .demo7-2 span:nth-child(2):after{
+                content: '';
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border:30px solid;
+                border-color: red transparent transparent red;
+                position: absolute;
+                top:35px;
+                left: 0;
+            }
+        </style>
+        <a name="c8" class="demo">
+            <h3>无穷大</h3>
+            <div class="demo8-1"></div>
+        </a>
+        <style type="text/css">
+            .demo8-1{
+                width: 200px;
+                height: 100px;
+                display: inline-block;
+                position: relative;
+            }
+            .demo8-1:before{
+                content: "";
+                width: 40px;
+                height: 40px;
+                display: inline-block;
+                border:20px solid red;
+                border-radius: 50% 0 50% 50%;
+                transform: rotate(45deg);
+            }
+            .demo8-1:after{
+                content: "";
+                width: 40px;
+                height: 40px;
+                display: inline-block;
+                border:20px solid red;
+                border-radius: 50% 50% 50% 0;
+                transform: rotate(45deg);
+                margin-left: 5px;
+            }
+        </style>
+        <a name="c9" class="demo">
+            <h3>鸡蛋</h3>
+            <div class="demo9-1"></div>
+        </a>
+        <style type="text/css">
+            .demo9-1{
+                width: 80px;
+                height: 120px;
+                display: inline-block;
+                background-color: red;
+                border-radius: 60% /70% 70% 50% 50%;
+            }
+        </style>
+        <a name="c10" class="demo">
+            <h3>食豆豆</h3>
+            <div class="demo10-1"></div>
+        </a>
+        <style type="text/css">
+            .demo10-1{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-radius: 50%;
+                border: 50px solid;
+                border-color: red transparent red red;
+            }
+        </style>
+        <a name="c11" class="demo">
+            <h3>对话框</h3>
+            <div class="demo11-1"></div>
+        </a>
+        <style type="text/css">
+            .demo11-1{
+                width: 120px;
+                height: 80px;
+                border-radius: 10px;
+                background-color: red;
+                display: inline-block;
+                position: relative;
+            }
+            .demo11-1:before{
+                content: '';
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-top: 13px solid transparent;
+                border-bottom: 13px solid transparent;
+                border-right:26px solid red;
+                position: absolute;
+                top: 10px;
+                left: -13px;
+            }
+        </style>
+        <a name="c12" class="demo">
+            <h3>钻石</h3>
+            <div class="demo12-1"></div>
+        </a>
+        <style type="text/css">
+            .demo12-1{
+                width: 0;
+                height: 0;
+                display: inline-block;
+                margin-top:30px;
+                position: relative;
+                border-top: 40px solid red;
+                border-left: 30px solid transparent;
+                border-right: 30px solid transparent;
+            }
+            .demo12-1:before{
+                content: '';
+                width: 40px;
+                height: 0;
+                display: inline-block;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 20px solid red;
+                position: absolute;
+                left: -30px;
+                top: -60px;
+            }
+        </style>
+        <a name="c13" class="demo">
+            <h3>八卦图</h3>
+            <div class="demo13-1"></div>
+        </a>
+        <style type="text/css">
+            .demo13-1{
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                position: relative;
+                border-radius: 50%;
+                background-color: #eee;
+                border-width: 2px 2px 50px 2px;
+                border-style: solid;
+                border-color: red;
+            }
+            .demo13-1:before{
+                content: '';
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+                border-radius: 50%;
+                background-color: #eee;
+                border: 19px solid red;
+                position: absolute;
+                left: 0;
+                top: 25px;
+            }
+            .demo13-1:after{
+                content: '';
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+                border-radius: 50%;
+                background-color: red;
+                border: 19px solid #eee;
+                position: absolute;
+                right: 0;
+                top: 25px;
+            }
+        </style>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#slide").click(function(){
+                if($(".menu").css("left") == "0px"){
+                    $(".menu").css("left","-100px");
+                }
+                else{
+                    $(".menu").css("left","0px");
+                }
+            })
+        })
+    </script>
+</body>
+</html>
